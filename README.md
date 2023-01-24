@@ -1,8 +1,8 @@
 # Experiment-08- Encoders-and-decoders 
-### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
-### THEORY 
+## AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
+## HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
+## SOFTWARE REQUIRED:   Quartus prime
+## THEORY 
 
 ## Encoders
 Binary code of N digits can be used to store 2N distinct elements of coded information. This is what encoders and decoders are used for. Encoders convert 2N lines of input into a code of N bits and Decoders decode the N bits into 2N lines.
@@ -27,7 +27,7 @@ Hence, the encoder can be realised with OR gates as follows:
 ![image](https://user-images.githubusercontent.com/36288975/171543740-68403b82-aa93-4c98-9343-f32b14885a2e.png)
 ## Figure -02 3 to 8 Encoder implenentation 
 
- ### Decoders 
+### Decoders 
 A decoder does the opposite job of an encoder. It is a combinational circuit that converts n lines of input into 2n lines of output.
 
 Let’s take an example of 3-to-8 line decoder.
@@ -55,42 +55,65 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+1.create module encoder and decoder.
 
+2.Get inputs and outputs for encoders and decoders.
 
+3.perform or operation for encoder and and logic for decoders.
+
+4.perform RTL LOGIC and get waveform.
 
 ### PROGRAM 
-/*
+````
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Aakash P
+RegisterNumber: 22005471 
+````
+## ENCODERS:
+````
+module enc(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+````
+## DECODERS:
+````
+module enc(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule 
+````
+## RTL LOGIC  
+### ENCODERS:
+![1](https://user-images.githubusercontent.com/118799103/214301345-dcccfeea-701a-4311-8d8e-274ac1ccd12a.png)
 
+### DECODERS:
+![2](https://user-images.githubusercontent.com/118799103/214301604-534f3a51-5c0c-4f43-9178-bdf45e18a60a.png)
 
+## TIMING DIGRAMS  
+### ENCODERS:
+![3](https://user-images.githubusercontent.com/118799103/214302038-c0953e09-fc36-4a83-b09d-5a9d3ae774e8.png)
 
+### DECODERS:
+![4](https://user-images.githubusercontent.com/118799103/214302213-fbaa02d2-9d50-47b6-8fe2-cf6a46942c2d.png)
 
+## TRUTH TABLE 
+### ENCODERS:
+![5](https://user-images.githubusercontent.com/118799103/214302854-1b4d2c6e-a161-41d1-a7c8-03b4ab5976af.png)
 
+### DECODERS:
+![6](https://user-images.githubusercontent.com/118799103/214303139-99d11dee-5b87-47d1-bac7-29c0eaf07237.png)
 
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+## RESULTS 
+Thus the program to desing encoder and decoder is done.
